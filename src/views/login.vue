@@ -33,6 +33,7 @@ export default {
         this.$message.success(data.meta.msg);
         sessionStorage.setItem('token', data.data.token);
         // 跳转到home
+        this.$router.push({ name: 'home' });
       } else {
         this.$message.error(data.meta.msg);
       }
