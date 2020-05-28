@@ -6,10 +6,10 @@
         <el-input v-model="form.username"></el-input>
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="form.password"></el-input>
+        <el-input v-model="form.password" type="password" @keyup.enter.native="handleLogin"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" class="login-btn">登 录</el-button>
+        <el-button type="primary" class="login-btn" @click="handleLogin">登 录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -24,11 +24,33 @@ export default {
         password: ''
       }
     };
+  },
+  methods: {
+    handleLogin() {
+      this.$http.post('login', this.form)
+        .then((res) => {
+          const data = res.data;
+          if (data.meta.status === 200) {
+            // 登录成功
+            // 跳转
+            // 提示
+            // 保存token
+            sessionStorage.setItem('token', data.data.token);
+            this.$message.success(data.meta.msg);
+          } else {
+            // 登录失败
+            this.$message.error(data.meta.msg);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .login {
   background-color: #324152;
   height: 100%;
