@@ -9,7 +9,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  beforeCreate() {
+    var token = sessionStorage.getItem('token');
+    if (!token) {
+      // 跳转到登录页面
+      this.$router.push({ name: 'login' });
+      // 提示
+      this.$message.warning('请先登录');
+    }
+  }
+};
 </script>
 
 <style scoped>
