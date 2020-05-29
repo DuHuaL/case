@@ -190,10 +190,6 @@ export default {
   },
   methods: {
     async loadData() {
-      // 获取登录以后的token
-      const token = sessionStorage.getItem('token');
-      // axios发送请求的时候需要token
-      this.$http.defaults.headers.common['Authorization'] = token;
       const res = await this.$http.get(
         `users?pagenum=${this.pageNum}&pagesize=${this.pageSize}&query=${
           this.searchKey
