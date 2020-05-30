@@ -21,8 +21,7 @@
           :router="true"
           background-color="#545c64"
           text-color="#fff"
-          :unique-opened="true"
-        >
+          :unique-opened="true">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>

@@ -190,6 +190,8 @@ export default {
   },
   methods: {
     async loadData() {
+      // const token = sessionStorage.getItem('token');
+      // this.$http.defaults.headers.common['Authorization'] = token;
       const res = await this.$http.get(
         `users?pagenum=${this.pageNum}&pagesize=${this.pageSize}&query=${
           this.searchKey
@@ -231,7 +233,7 @@ export default {
       if (data.meta.status === 200) {
         this.$message.success(data.meta.msg);
       } else {
-        this.$$message.error(data.meta.msg);
+        this.$message.error(data.meta.msg);
       }
     },
     // 添加用户
