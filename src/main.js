@@ -8,9 +8,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/css/index.css';
 import MyAxios from '@/plugins/myaxios';
 import moment from 'moment';
+
 Vue.config.productionTip = false;
 
-// 注册
+// 全局注册
 Vue.use(MyAxios);
 Vue.use(ElementUI);
 
