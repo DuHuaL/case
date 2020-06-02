@@ -8,13 +8,16 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/css/index.css';
 import MyAxios from '@/plugins/myaxios';
 import moment from 'moment';
-
+// 导入封装的面包屑组件
+import MyBreadcrumb from '@/components/MyBreadcrumb';
 Vue.config.productionTip = false;
 
 // 全局注册
 Vue.use(MyAxios);
 Vue.use(ElementUI);
 
+// 全局组件
+Vue.component(MyBreadcrumb.name, MyBreadcrumb);
 // 格式化日期
 Vue.filter('fmtDate', (value, fmtStr) => {
   return moment(value).format(fmtStr);

@@ -1,11 +1,7 @@
 <template>
   <el-card class="box-card">
     <!-- 面包屑 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-      <el-breadcrumb-item>角色列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <my-breadcrumb level1="权限管理" level2="角色列表"></my-breadcrumb>
     <el-row>
       <el-col :span="24">
         <el-button class="btn" @click="dialogFormAddVisible = true">添加角色</el-button>

@@ -6,6 +6,7 @@ import List from '@/views/users/list';
 import Rights from '@/views/roles/rights';
 import Roles from '@/views/roles/roles';
 import { Message } from 'element-ui';
+import Categories from '@/views/goods/categories';
 Vue.use(Router);
 
 const router = new Router({
@@ -19,7 +20,8 @@ const router = new Router({
         // 子路由
         { name: 'list', path: 'users', component: List },
         { name: 'right', path: 'rights', component: Rights },
-        { name: 'roles', path: 'roles', component: Roles }
+        { name: 'roles', path: 'roles', component: Roles },
+        { name: 'categories', path: 'categories', component: Categories }
       ]
     }
   ]
@@ -39,7 +41,7 @@ router.beforeEach((to, from, next) => {
       next();
     } else {
       // 提示
-      Message.success('请先登录')
+      Message.success('请先登录');
       // 跳转到登录
       router.push({ name: 'login' });
     }
