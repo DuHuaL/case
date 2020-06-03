@@ -10,7 +10,7 @@
         </el-input>
       </el-col>
       <el-col :span="18">
-        <el-button type="success" plain>添加商品</el-button>
+        <el-button type="success" plain @click="$router.push({name: 'goodsadd'})">添加商品</el-button>
       </el-col>
     </el-row>
     <!-- 表格 -->
