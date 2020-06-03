@@ -78,6 +78,7 @@ export default {
 <style scoped>
 .container {
   height: 100%;
+  box-sizing: border-box;
 }
 .header {
   background-color: #b3c0d1;
@@ -106,6 +107,5 @@ export default {
 .main {
   background-color: #e9eef3;
   height: 100%;
-  box-sizing: border-box
 }
 </style>
