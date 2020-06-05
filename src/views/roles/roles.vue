@@ -184,8 +184,6 @@ export default {
       const { data } = await this.$http.get('roles');
       if (data.meta.status === 200) {
         this.tableData = data.data;
-      } else {
-        this.$message.error(data.meta.msg);
       }
     },
     // 添加角色
@@ -200,8 +198,6 @@ export default {
         this.dialogFormAddVisible = false;
         // 清空输入框
         this.addUserForm = {};
-      } else {
-        this.$$message.error(data.meta.msg);
       }
     },
     // 删除角色
@@ -237,8 +233,6 @@ export default {
         this.dialogFormEditVisible = false;
         this.loadData();
         this.$message.success(data.meta.msg);
-      } else {
-        this.$message.error(data.meta.msg);
       }
     },
     // 关闭左侧expand中的权限
@@ -249,8 +243,6 @@ export default {
         this.$message.success(meta.msg);
         // 重新绑定当前角色下的所有权限
         role.children = data;
-      } else {
-        this.$message.error(meta.msg);
       }
     },
     // 树属性的列表数据
@@ -328,8 +320,6 @@ export default {
         this.$message.success(data.meta.msg);
         this.dialogSetRightEditVisible = false;
         this.loadData();
-      } else {
-        this.$message.error(data.meta.msg);
       }
     }
   }

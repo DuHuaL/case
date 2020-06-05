@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { Message } from 'element-ui';
 const MyAxios = {};
 MyAxios.install = function(Vue) {
   const instance = axios.create({
@@ -23,9 +23,15 @@ MyAxios.install = function(Vue) {
     return Promise.reject(error);
   });
   // Add a response interceptor
-  axios.interceptors.response.use(function (response) {
+  instance.interceptors.response.use(function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
+    // 当获取到服务器的响应之后，在返回给请求之前
+    const { data: { meta: { status, msg } } } = response;
+    // 根据不同的错误码，做不同的提示
+    if (status !== 200 && status !== 201) {
+      Message.error(msg);
+    }
     return response;
   }, function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
