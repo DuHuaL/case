@@ -11,6 +11,7 @@ import Goods from '@/views/goods/goods';
 import GoodsAdd from '@/views/goods/goodsadd';
 import Params from '@/views/goods/params';
 import Orders from '@/views/orders/orders';
+import Reports from '@/views/reports/reports';
 Vue.use(Router);
 
 const router = new Router({
@@ -29,7 +30,8 @@ const router = new Router({
         { name: 'goods', path: 'goods', component: Goods },
         { name: 'goodsadd', path: 'goods/add', component: GoodsAdd },
         { name: 'params', path: 'params', component: Params },
-        { name: 'orders', path: 'orders', component: Orders }
+        { name: 'orders', path: 'orders', component: Orders },
+        { name: 'reports', path: 'reports', component: Reports }
       ]
     }
   ]
