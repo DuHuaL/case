@@ -24,6 +24,17 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  // 配置cdn
+  externals: {
+    // 前面的属性vue 代表的是 import ... from 'vue'，是from后面的名字
+    // 值 Vue 是vue.js暴露在全局中的构造函数名称
+    vue: 'Vue',
+    axios: 'axios',
+    echarts: 'echarts',
+    'element-ui': 'ELEMENT',
+    moment: 'moment',
+    'vue-router': 'VueRouter'
+  },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

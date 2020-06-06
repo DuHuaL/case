@@ -4,7 +4,8 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// 打包是使用的cdn， 这里引入的第三方包的css就不需要了
+// import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/css/index.css';
 import MyAxios from '@/plugins/myaxios';
 import moment from 'moment';

@@ -1,17 +1,32 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from '@/views/login';
-import Home from '@/views/home';
-import List from '@/views/users/list';
-import Rights from '@/views/roles/rights';
-import Roles from '@/views/roles/roles';
 import { Message } from 'element-ui';
-import Categories from '@/views/goods/categories';
-import Goods from '@/views/goods/goods';
-import GoodsAdd from '@/views/goods/goodsadd';
-import Params from '@/views/goods/params';
-import Orders from '@/views/orders/orders';
-import Reports from '@/views/reports/reports';
+// 使用路由懒加载 build之后
+const Login = () => import('@/views/login');
+const Home = () => import('@/views/home');
+const List = () => import('@/views/users/list');
+const Rights = () => import('@/views/roles/rights');
+const Roles = () => import('@/views/roles/roles');
+const Categories = () => import('@/views/goods/categories');
+const Goods = () => import('@/views/goods/goods');
+const GoodsAdd = () => import('@/views/goods/goodsadd');
+const Params = () => import('@/views/goods/params');
+const Orders = () => import('@/views/orders/orders');
+const Reports = () => import('@/views/reports/reports');
+
+// 导入组件 打包之前的
+// import Login from '@/views/login';
+// import Home from '@/views/home';
+// import List from '@/views/users/list';
+// import Rights from '@/views/roles/rights';
+// import Roles from '@/views/roles/roles';
+// import Categories from '@/views/goods/categories';
+// import Goods from '@/views/goods/goods';
+// import GoodsAdd from '@/views/goods/goodsadd';
+// import Params from '@/views/goods/params';
+// import Orders from '@/views/orders/orders';
+// import Reports from '@/views/reports/reports';
+
 Vue.use(Router);
 
 const router = new Router({
@@ -51,7 +66,7 @@ router.beforeEach((to, from, next) => {
       next();
     } else {
       // 提示
-      Message.success('请先登录');
+      Message.warning('请先登录');
       // 跳转到登录
       router.push({ name: 'login' });
     }
